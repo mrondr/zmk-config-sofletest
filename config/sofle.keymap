@@ -45,29 +45,43 @@
         par_round_open: us2it_open_par_round {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(N9)>;
+            bindings = <&kp LS(N8)>;
             label = "US2IT_OPEN_PAR_ROUND";
         };
 
         par_round_close: us2it_ {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(N0)>;
+            bindings = <&kp LS(N9)>;
             label = "US2IT_";
         };
 
         bracket_open: bracket_open {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(LEFT_BRACKET)>;
+            bindings = <&kp LS(RA(LEFT_BRACKET))>;
             label = "BRACKET_OPEN";
         };
 
         bracket_close: bracket_close {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(RIGHT_BRACKET)>;
+            bindings = <&kp LS(RA(RIGHT_BRACKET))>;
             label = "BRACKET_CLOSE";
+        };
+
+        sqr_open: sqr_open {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(LEFT_BRACKET)>;
+            label = "SQR_OPEN";
+        };
+
+        sqr_close: sqr_close {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(RIGHT_BRACKET)>;
+            label = "SQR_CLOSE";
         };
     };
 
@@ -109,10 +123,10 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans  &kp F1     &kp F2        &kp F3        &kp F4        &kp F5                          &kp F6        &kp F7         &kp F8            &kp F9    &kp MINUS         &kp EQUAL
-&trans  &kp MINUS  &kp N7        &kp N8        &kp N9        &kp ASTERISK                    &kp CAPSLOCK  &kp BACKSLASH  &kp EQUAL         &kp SEMI  &bracket_open     &bracket_close
-&trans  &kp SLASH  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS                       &trans        &kp SQT        &kp LEFT_BRACKET  &trans    &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans  &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PLUS      &trans    &trans  &trans        &trans         &trans            &trans    &par_round_open   &par_round_close
+&trans  &kp F1     &kp F2        &kp F3        &kp F4        &kp F5                          &kp F6        &kp F7         &kp F8            &kp F9    &kp MINUS        &kp EQUAL
+&trans  &kp MINUS  &kp N7        &kp N8        &kp N9        &kp ASTERISK                    &kp CAPSLOCK  &kp BACKSLASH  &kp EQUAL         &kp SEMI  &bracket_open    &bracket_close
+&trans  &kp SLASH  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS                       &trans        &kp SQT        &kp LEFT_BRACKET  &trans    &sqr_open        &sqr_close
+&trans  &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PLUS      &trans    &trans  &trans        &trans         &trans            &trans    &par_round_open  &par_round_close
                    &trans        &trans        &kp EQUAL     &trans        &trans    &trans  &trans        &trans         &trans            &trans
             >;
 
