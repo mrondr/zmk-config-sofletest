@@ -83,6 +83,13 @@
             bindings = <&kp RA(RIGHT_BRACKET)>;
             label = "SQR_CLOSE";
         };
+
+        equal: equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RS(NUMBER_0)>;
+            label = "EQUAL";
+        };
     };
 
     keymap {
@@ -99,10 +106,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp GRAVE   &kp N1  &kp N2    &kp N3    &kp N4  &kp N5                          &kp N6     &kp N7         &kp N8     &kp N9         &kp N0    &kp DELETE
-&kp TAB     &kp Q   &kp W     &kp E     &kp R   &kp T                           &kp Y      &kp U          &kp I      &kp O          &kp P     &kp BSPC
-&kp ESCAPE  &kp A   &kp S     &kp D     &kp F   &kp G                           &kp H      &kp J          &kp K      &kp L          &kp P     &kp MINUS
-&kp LSHFT   &kp Z   &kp X     &kp C     &kp V   &kp B      &kp C_MUTE    &none  &kp N      &kp M          &kp COMMA  &kp DOT        &kp FSLH  &kp RSHFT
+&kp GRAVE   &kp N1  &kp N2    &kp N3    &kp N4  &kp N5                          &kp N6     &kp N7         &kp N8     &kp N9         &kp N0         &trans
+&kp TAB     &kp Q   &kp W     &kp E     &kp R   &kp T                           &kp Y      &kp U          &kp I      &kp O          &kp BACKSPACE  &kp DELETE
+&kp ESCAPE  &kp A   &kp S     &kp D     &kp F   &kp G                           &kp H      &kp J          &kp K      &kp L          &kp P          &kp MINUS
+&kp LSHFT   &kp Z   &kp X     &kp C     &kp V   &kp B      &kp C_MUTE    &none  &kp N      &kp M          &kp COMMA  &kp DOT        &kp FSLH       &kp RSHFT
                     &kp LGUI  &kp LALT  &mo 1   &kp ENTER  &kp LCTRL     &mo 2  &kp SPACE  &kp RIGHT_ALT  &kp RCTRL  &kp RIGHT_ALT
             >;
 
@@ -123,16 +130,16 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans  &kp F1     &kp F2        &kp F3        &kp F4        &kp F5                          &kp F6        &kp F7         &kp F8            &kp F9    &kp MINUS        &kp EQUAL
-&trans  &kp MINUS  &kp N7        &kp N8        &kp N9        &kp ASTERISK                    &kp CAPSLOCK  &kp BACKSLASH  &kp EQUAL         &kp SEMI  &bracket_open    &bracket_close
-&trans  &kp SLASH  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS                       &trans        &kp SQT        &kp LEFT_BRACKET  &trans    &sqr_open        &sqr_close
-&trans  &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PLUS      &trans    &trans  &trans        &trans         &trans            &trans    &par_round_open  &par_round_close
-                   &trans        &trans        &kp EQUAL     &trans        &trans    &trans  &trans        &trans         &trans            &trans
+&trans  &kp F1     &kp F2        &kp F3        &kp F4        &kp F5                          &kp F6  &kp F7         &kp F8            &kp F9    &trans           &trans
+&trans  &kp MINUS  &kp N7        &kp N8        &kp N9        &kp ASTERISK                    &trans  &kp BACKSLASH  &kp EQUAL         &kp SEMI  &bracket_open    &bracket_close
+&equal  &kp SLASH  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS                        &trans  &kp SQT        &kp LEFT_BRACKET  &trans    &sqr_open        &sqr_close
+&trans  &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD    &trans    &trans  &trans  &trans         &trans            &trans    &par_round_open  &par_round_close
+                   &trans        &trans        &kp EQUAL     &trans        &trans    &trans  &trans  &trans         &trans            &trans
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>,
-                <&inc_dec_kp PG_UP PG_DN>;
+                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
         };
 
         raise_layer {
