@@ -90,6 +90,13 @@
             bindings = <&kp RS(NUMBER_0)>;
             label = "EQUAL";
         };
+
+        gthan: gthan {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(BACKSLASH)>;
+            label = "GTHAN";
+        };
     };
 
     keymap {
@@ -130,16 +137,16 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans  &kp F1     &kp F2        &kp F3        &kp F4        &kp F5                          &kp F6  &kp F7         &kp F8            &kp F9    &trans           &trans
-&trans  &kp MINUS  &kp N7        &kp N8        &kp N9        &kp ASTERISK                    &trans  &kp BACKSLASH  &kp EQUAL         &kp SEMI  &bracket_open    &bracket_close
-&equal  &kp SLASH  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS                        &trans  &kp SQT        &kp LEFT_BRACKET  &trans    &sqr_open        &sqr_close
-&trans  &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD    &trans    &trans  &trans  &trans         &trans            &trans    &par_round_open  &par_round_close
-                   &trans        &trans        &kp EQUAL     &trans        &trans    &trans  &trans  &trans         &trans            &trans
+&trans  &kp F1     &kp F2        &kp F3        &kp F4        &kp F5                               &kp F6  &kp F7         &kp F8            &kp F9    &kp BACKSLASH    &kp LS(BACKSLASH)
+&trans  &kp SLASH  &kp N7        &kp N8        &kp N9        &kp LS(ASTERISK)                     &trans  &kp BACKSLASH  &kp EQUAL         &kp SEMI  &bracket_open    &bracket_close
+&equal  &kp MINUS  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp RIGHT_BRACKET                    &trans  &kp SQT        &kp LEFT_BRACKET  &trans    &sqr_open        &sqr_close
+&trans  &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD         &trans    &trans  &trans  &trans         &trans            &trans    &par_round_open  &par_round_close
+                   &trans        &trans        &kp EQUAL     &trans             &trans    &trans  &trans  &trans         &trans            &trans
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>,
-                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
+                <&inc_dec_kp C_BRIGHTNESS_DEC C_BRIGHTNESS_INC>;
         };
 
         raise_layer {
