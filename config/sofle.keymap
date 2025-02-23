@@ -142,7 +142,7 @@
 &trans  &kp IT_SLASH  &kp N7        &kp N8        &kp N9        &kp IT_ASTERISK                    &trans  &kp BACKSLASH  &kp EQUAL         &kp SEMI  &bracket_open     &bracket_close
 &equal  &kp IT_MINUS  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp IT_PLUS                        &trans  &kp SQT        &kp LEFT_BRACKET  &trans    &sqr_open         &sqr_close
 &trans  &kp N0        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD       &trans    &trans  &trans  &trans         &trans            &trans    &par_round_open   &par_round_close
-                      &trans        &trans        &kp EQUAL     &trans           &trans    &trans  &trans  &trans         &trans            &trans
+                      &trans        &trans        &trans        &trans           &trans    &trans  &trans  &trans         &trans            &trans
             >;
 
             sensor-bindings =
