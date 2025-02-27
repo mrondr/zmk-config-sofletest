@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include "keys_it.h"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
@@ -113,16 +114,16 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp GRAVE   &kp N1  &kp N2    &kp N3    &kp N4  &kp N5                          &kp N6     &kp N7         &kp N8     &kp N9         &kp N0         &trans
-&kp TAB     &kp Q   &kp W     &kp E     &kp R   &kp T                           &kp Y      &kp U          &kp I      &kp O          &kp BACKSPACE  &kp DELETE
-&kp ESCAPE  &kp A   &kp S     &kp D     &kp F   &kp G                           &kp H      &kp J          &kp K      &kp L          &kp P          &kp MINUS
-&kp LSHFT   &kp Z   &kp X     &kp C     &kp V   &kp B      &kp C_MUTE    &none  &kp N      &kp M          &kp COMMA  &kp DOT        &kp FSLH       &kp RSHFT
-                    &kp LGUI  &kp LALT  &mo 1   &kp ENTER  &kp LCTRL     &mo 2  &kp SPACE  &kp RIGHT_ALT  &kp RCTRL  &kp RIGHT_ALT
+&kp GRAVE       &kp N1  &kp N2    &kp N3    &kp N4  &kp N5                          &kp N6     &kp N7         &kp N8     &kp N9   &kp N0         &trans
+&kp TAB         &kp Q   &kp W     &kp E     &kp R   &kp T                           &kp Y      &kp U          &kp I      &kp O    &kp BACKSPACE  &kp DELETE
+&kp LEFT_SHIFT  &kp A   &kp S     &kp D     &kp F   &kp G                           &kp H      &kp J          &kp K      &kp L    &kp P          &kp MINUS
+&kp ESC         &kp Z   &kp X     &kp C     &kp V   &kp B      &kp C_MUTE    &none  &kp N      &kp M          &kp COMMA  &kp DOT  &kp FSLH       &kp RSHFT
+                        &kp LGUI  &kp LALT  &mo 1   &kp ENTER  &kp LCTRL     &mo 2  &kp SPACE  &kp RIGHT_ALT  &kp RCTRL  &mo 1
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_DN C_VOL_UP>,
-                <&inc_dec_kp PG_UP PG_DN>;
+                <&inc_dec_kp C_BRIGHTNESS_DEC C_BRIGHTNESS_INC>;
         };
 
         lower_layer {
@@ -137,11 +138,11 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans  &kp F1     &kp F2        &kp F3        &kp F4        &kp F5                               &kp F6  &kp F7         &kp F8            &kp F9    &kp BACKSLASH    &kp LS(BACKSLASH)
-&trans  &kp SLASH  &kp N7        &kp N8        &kp N9        &kp LS(ASTERISK)                     &trans  &kp BACKSLASH  &kp EQUAL         &kp SEMI  &bracket_open    &bracket_close
-&equal  &kp MINUS  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp RIGHT_BRACKET                    &trans  &kp SQT        &kp LEFT_BRACKET  &trans    &sqr_open        &sqr_close
-&trans  &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD         &trans    &trans  &trans  &trans         &trans            &trans    &par_round_open  &par_round_close
-                   &trans        &trans        &kp EQUAL     &trans             &trans    &trans  &trans  &trans         &trans            &trans
+&trans  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                             &kp F6  &kp F7         &kp F8            &kp F9    &kp IT_LESS_THAN  &kp IT_GT
+&trans  &kp IT_SLASH  &kp N7        &kp N8        &kp N9        &kp IT_ASTERISK                    &trans  &kp BACKSLASH  &kp EQUAL         &kp SEMI  &bracket_open     &bracket_close
+&equal  &kp IT_MINUS  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp IT_PLUS                        &trans  &kp SQT        &kp LEFT_BRACKET  &trans    &sqr_open         &sqr_close
+&trans  &kp N0        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD       &trans    &trans  &trans  &trans         &trans            &trans    &par_round_open   &par_round_close
+                      &trans        &trans        &trans        &trans           &trans    &trans  &trans  &trans         &trans            &trans
             >;
 
             sensor-bindings =
@@ -160,16 +161,16 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                            &trans     &trans    &trans    &trans     &trans   &trans
-&trans      &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                                  &kp PG_UP  &trans    &kp UP    &trans     &kp N0   &trans
-&trans      &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                                &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
-&trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &trans        &trans            &trans  &trans     &trans    &trans    &trans     &trans   &trans
-                          &trans        &trans        &trans        &trans        &kp RIGHT_META    &trans  &trans     &trans    &trans    &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                            &kp PRINTSCREEN  &trans    &trans    &trans     &trans  &trans
+&trans      &kp INS       &trans        &kp K_CMENU   &trans        &trans                                  &kp PG_UP        &trans    &kp UP    &trans     &trans  &trans
+&trans      &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                                &kp PG_DN        &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
+&trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &trans        &trans            &trans  &trans           &trans    &trans    &trans     &trans  &trans
+                          &trans        &trans        &trans        &trans        &kp RIGHT_META    &trans  &trans           &trans    &trans    &trans
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>,
-                <&inc_dec_kp PG_UP PG_DN>;
+                <&inc_dec_kp C_BRIGHTNESS_DEC C_BRIGHTNESS_INC>;
         };
 
         adjust_layer {
